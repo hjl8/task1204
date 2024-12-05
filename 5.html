@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function f3(words) {
+            let arr = [],
+                regexps = [
+                    /^[QWERTYUIOPqwertyuiop]+$/,
+                    /^[ASDFGHJKLasdfghjkl]+$/,
+                    /^[ZXCVBNMzxcvbnm]+$/
+                ];
+            regexps.forEach(reg => {
+                words.forEach(item => {
+                    reg.test(item) ? arr.push(item) : '';
+                });
+            });
+            return arr;
+        }
+
+        console.log(f3(['hello', 'Alaska', 'Dad', 'Peace']));
+        console.log(f3(['awm']));
+    </script>
+</body>
+
+</html>
