@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function f2(s, t) {
+            let res = '', temp = '', rep = '';
+            for (let i = 0; i < t.length; i++) {
+                if (temp.indexOf(t[i]) === -1) {
+                    temp += t[i];
+                } else {
+                    rep += t[i];
+                }
+            }
+
+            for (let i = 0; i < s.length; i++) {
+                if (s.indexOf(temp[i]) === -1) {
+                    res += temp[i];
+                }
+            }
+
+            if (res === '' && rep === '') {
+                return t;
+            } else if (res === '') {
+                return rep;
+            }
+            return res;
+        }
+
+        console.log(f2('abcd', 'aabcd'));
+        console.log(f2('', 'p'));
+    </script>
+</body>
+
+</html>
