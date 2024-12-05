@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function parseRomeNumber(rome) {
+            const num = {
+                I: 1,
+                V: 5,
+                X: 10,
+                L: 50,
+                C: 100,
+                D: 500,
+                M: 1000
+            };
+            if (rome.length === 1) {
+                return num[rome];
+            }
+            let res = 0;
+            for (let i = 1; i < rome.length; i++) {
+                console.log(num[rome[i - 1]], num[rome[i]])
+                if (num[rome[i - 1]] >= num[rome[i]]) {
+                    res += num[rome[i - 1]] + num[rome[i]];
+                } else {
+                    res += num[rome[i]] - num[rome[i - 1]];
+                }
+                if (i !== rome.length - 1) {
+                    res -= num[rome[i]];
+                }
+            }
+
+            return res;
+        }
+
+        console.log(parseRomeNumber('CIV'));
+    </script>
+</body>
+
+</html>
