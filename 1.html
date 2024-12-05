@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function pascalTriangle(numRows) {
+            let arr = [], temp = [];
+            for (let i = 0; i < numRows; i++) {
+                for (let j = 0; j <= i; j++) {
+                    if ((i < 2) || (j === 0 || j === i)) {
+                        temp.push(1);
+                    } else {
+                        temp.push(arr[i - 1][j] + arr[i - 1][j - 1]);
+                    }
+                }
+                arr.push(temp);
+                temp = [];
+            }
+            return arr;
+        }
+
+        console.log(pascalTriangle(5));
+    </script>
+</body>
+
+</html>
